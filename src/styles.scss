@@ -1,0 +1,15 @@
+body {
+    background-image: url('./assets/img/bg-coches.jpg');
+    background-position: cover;
+    background-size: cover;
+    background-image: fixed;
+}
+
+.style-card {
+    justify-content: center;
+    margin-top: 30px;
+    width: 100%;
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}

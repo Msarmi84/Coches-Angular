@@ -1,0 +1,8 @@
+<app-navbar (cambiarVista)="cambiarVista()"></app-navbar>
+
+<app-tabla-coches *ngIf="mostrarTabla === true" [coches]="listadoDeCoches"></app-tabla-coches>
+
+<app-tarjetas-coche *ngIf="mostrarTabla === false" [coches]="listadoDeCoches"></app-tarjetas-coche>
+
+
+<app-footer></app-footer>

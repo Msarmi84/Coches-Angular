@@ -1,0 +1,48 @@
+<div class="container">
+    <h1 class="text-alig colorh1">Listado de coches tabla</h1>
+    <div class="container style-table">
+        <div class="row">
+            <div class="col6">
+                <table class="table table-hover table-dark">
+                    <thead>
+                        <tr>
+                            <th scope="col">id</th>
+                            <th scope="col">make</th>
+                            <th scope="col">color</th>
+                            <th scope="col">model</th>
+                            <th scope="col">state</th>
+                            <th scope="col">doors</th>
+                            <th scope="col">type</th>
+                            <th scope="col">engineHp</th>
+                            <th scope="col">discount</th>
+                            <th scope="col">visible</th>
+                            <th scope="col">available</th>
+                            <th scope="col">price</th>
+                            <th scope="col">rating</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <ng-container *ngFor="let coche of coches">
+                            <tr>
+                                <td>{{ coche.id }}</td>
+                                <td>{{ coche.make }}</td>
+                                <td>{{ coche.color }}</td>
+                                <td>{{ coche.model }}</td>
+                                <td>{{ coche.state }}</td>
+                                <td>{{ coche.doors }}</td>
+                                <td>{{ coche.type }}</td>
+                                <td>{{ coche.engineHp }}</td>
+                                <td>{{ coche.discount }}</td>
+                                <td>{{ coche.visible }}</td>
+                                <td>{{ coche.available }}</td>
+                                <td>{{ coche.price }}</td>
+                                <td>{{ coche.rating }}</td>
+                            </tr>
+                        </ng-container>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
