@@ -1,43 +1,54 @@
-<div class="container">
-    <h1 class="text-alig colorh1">Listado de coches tabla</h1>
+<div class="container" [ngClass]="{'temaOscuro': esTemaOscuro}">
+    <div class="boton">
+        <h1 class="textTabla">Listado de coches tabla</h1>
+        <button type="button" class="btn btn-dark colorBoton" (click)="mostrarRating()">{{ txtBoton }}</button>
+    </div>
     <div class="container style-table">
         <div class="row">
-            <div class="col6">
+            <div class="col-6">
                 <table class="table table-hover table-dark">
                     <thead>
                         <tr>
-                            <th scope="col">id</th>
-                            <th scope="col">make</th>
-                            <th scope="col">color</th>
-                            <th scope="col">model</th>
-                            <th scope="col">state</th>
-                            <th scope="col">doors</th>
-                            <th scope="col">type</th>
-                            <th scope="col">engineHp</th>
-                            <th scope="col">discount</th>
-                            <th scope="col">visible</th>
-                            <th scope="col">available</th>
-                            <th scope="col">price</th>
-                            <th scope="col">rating</th>
+                            <th scope="col">ID</th>
+                            <th scope="col">NOMBRE</th>
+                            <th scope="col">COLOR</th>
+                            <th scope="col">MODEL</th>
+                            <th scope="col">STATE</th>
+                            <th scope="col">DOORS</th>
+                            <th scope="col">TYPE</th>
+                            <th scope="col">ENGINEHp</th>
+                            <th scope="col">DISCOUNT</th>
+                            <th scope="col">AVAILABLE</th>
+                            <th scope="col">PRICE</th>
+                            <th scope="col">RATING</th>
 
                         </tr>
                     </thead>
                     <tbody>
                         <ng-container *ngFor="let coche of coches">
-                            <tr>
+                            <tr *ngIf="(soloRating && coche.rating) || (!soloRating)">
                                 <td>{{ coche.id }}</td>
-                                <td>{{ coche.make }}</td>
+                                <td>{{ coche.nombre }}</td>
                                 <td>{{ coche.color }}</td>
                                 <td>{{ coche.model }}</td>
-                                <td>{{ coche.state }}</td>
+                                <!-- directiva añade iconos y estilos -->
+                                <td [appCocheEstado]="coche.state" appCocheEstado (iconoPulsado)="iconoPulsado($event)"></td>
                                 <td>{{ coche.doors }}</td>
                                 <td>{{ coche.type }}</td>
                                 <td>{{ coche.engineHp }}</td>
-                                <td>{{ coche.discount }}</td>
-                                <td>{{ coche.visible }}</td>
+                                <td>
+                                    <ng-container [ngClass]="{'': coche.discount}">
+                                        <span tooltip="Coche en oferta" placement="bottom" hide-delay="0"><i *ngIf="coche.discount" class="fa fa-hand-holding-usd"></i></span>
+                                    </ng-container>
+                                </td>
                                 <td>{{ coche.available }}</td>
+                                <td>{{ coche.visible }}</td>
                                 <td>{{ coche.price }}</td>
                                 <td>{{ coche.rating }}</td>
+                                <!-- PINTARÁ EL BOTON MIENTRAS HAY STOCK -->
+                                <td><button type="button" [ngClass]="{'hide': !coche.available}" class="fa fa-shopping-cart fa-md shop" (click)="comprar($event,coche)"></button></td>
+                                <td> <button title="Editar Coche" class="fa fa-edit" (click)="cocheClick(coche)"></button></td>
+                                <td><button title="Eliminar Coche" class="fa fa-trash" (click)="eliminarClick($event, coche)"></button></td>
                             </tr>
                         </ng-container>
                     </tbody>

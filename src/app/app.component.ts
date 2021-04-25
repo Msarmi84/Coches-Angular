@@ -6,10 +6,16 @@ import { Coche } from './models/coche';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent implements OnInit{
 
   listadoDeCoches: Coche[] = [];
-  mostrarTabla = false;
+  mostrarTabla = true;
+  temaOscuro = true;
+  mostrarForm = true;
+  txtBotonForm = 'Ver formulario';
+  elCoche: Coche;
+  idlength = 1;
 
 
 
@@ -17,105 +23,144 @@ export class AppComponent implements OnInit{
     this.listadoDeCoches.push(new Coche({
 
       id: 1,
-      make: 'Turismo histórico',
+      nombre: 'BMW',
       color: 'blanco',
-      model: 'Berlín',
-      state: '',
+      model: 'familiar',
+      state: 'nuevo',
       doors: 5,
       type: 'cerrado',
       engineHp: 'Pack Europa',
-      discount: 'Turismo histórico',
+      discount: true,
       visible: '',
-      available: 'Berlín',
+      available: 5,
       price: 'Turismo histórico',
       rating: 4,
       foto: 'coche.jpg'
     }));
     this.listadoDeCoches.push(new Coche({
       id: 2,
-      make: 'Turismo histórico',
+      nombre: 'Mercedes-Benz',
       color: 'gris',
-      model: 'Berlín',
-      state: '',
+      model: 'Berlina',
+      state: 'segunda mano',
       doors: 3,
       type: 'cerrado',
       engineHp: 'Pack Europa',
-      discount: 'Turismo histórico',
+      discount: false,
       visible: '',
-      available: 'Berlín',
+      available: 1,
       price: 'Turismo histórico',
-      rating: 7,
+      rating: '',
       foto: 'coche1.jpg'
     }));
     this.listadoDeCoches.push(new Coche({
       id: 3,
-      make: 'Turismo histórico',
+      nombre: 'Audi',
       color: 'azul',
-      model: 'Berlín',
-      state: '',
+      model: 'familiar',
+      state: 'nuevo',
       doors: 3,
       type: 'cerrado',
       engineHp: 'Pack Europa',
-      discount: 'Turismo histórico',
+      discount: true,
       visible: '',
-      available: 'Berlín',
+      available: 20,
       price: 'Turismo histórico',
       rating: 6,
       foto: 'coche2.jpg'
     }));
     this.listadoDeCoches.push(new Coche({
       id: 4,
-      make: 'Turismo histórico',
+      nombre: 'Lexus',
       color: 'rojo',
-      model: 'Berlín',
-      state: '',
+      model: 'Berlina',
+      state: 'segunda mano',
       doors: 5,
       type: 'cerrado',
       engineHp: 'Pack Europa',
-      discount: 'Turismo histórico',
+      discount: false,
       visible: '',
-      available: 'Berlín',
+      available: 9,
       price: 'Turismo histórico',
-      rating: 8,
+      rating: '',
       foto: 'coche3.jpg'
     }));
     this.listadoDeCoches.push(new Coche({
       id: 5,
-      make: 'Turismo histórico',
+      nombre: 'Renault',
       color: 'negro',
-      model: 'Berlín',
-      state: '',
+      model: 'familiar',
+      state: 'nuevo',
       doors: 3,
       type: 'cerrado',
       engineHp: 'Pack Europa',
-      discount: 'Turismo histórico',
+      discount: true,
       visible: '',
-      available: 'Berlín',
+      available: 4,
       price: 'Turismo histórico',
       rating: 9,
       foto: 'coche4.jpg'
     }));
     this.listadoDeCoches.push(new Coche({
       id: 6,
-      make: 'Turismo histórico',
+      nombre: 'Ford',
       color: 'verde',
-      model: 'Berlín',
-      state: '',
+      model: 'Berlina',
+      state: 'segunda mano',
       doors: 3,
       type: 'cerrado',
       engineHp: 'Pack Europa',
-      discount: 'Turismo histórico',
+      discount: false,
       visible: '',
-      available: 'Berlín',
+      available: 14,
       price: 'Turismo histórico',
       rating: 4,
       foto: 'coche5.jpg'
     }));
+
+    this.idlength = this.listadoDeCoches.length + 1;
+
   }
+
 
   cambiarVista(): void {
     this.mostrarTabla = !this.mostrarTabla;
   }
+  cambiarTema(): void {
+    this.temaOscuro = !this.temaOscuro;
+  }
+
+  verForm(): void {
+    this.mostrarForm = !this.mostrarForm;
+    this.txtBotonForm = !this.txtBotonForm ?  'Ver formulario' : 'Ocultar Formulario';
+  }
+
+  cocheSeleccionado(coche: Coche): void {
+    this.elCoche = new Coche(coche); // nueva instancia de un coche
+  }
+
+  borrarCoche(coche: Coche): void {
+    const cocheIdx = this.listadoDeCoches.findIndex(x => x.id === coche.id);
+    if (cocheIdx >= 0) {
+      this.listadoDeCoches.splice(cocheIdx, 1);
+    }
+  }
+
+  enviar(coche: Coche): void {
+
+    console.log(coche);
+    const cocheIdx = this.listadoDeCoches.findIndex(x => x.id === coche.id);
+
+    if (cocheIdx >= 0) {
+      this.listadoDeCoches[cocheIdx] = coche;
+    } else {
+      this.idlength++;
+      coche.id = this.idlength;
+      this.listadoDeCoches.push(coche);
+    }
+  }
+
+
 
 }
 

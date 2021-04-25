@@ -8,14 +8,28 @@
             <span class="navbar-toggler-icon"></span>
           </button>
 
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto styleNav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            <div class="collapse navbar-collapse styleNav" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto ">
+                    <!-- <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only"></span></a>
+                    </li> -->
+                    <li class="nav-item active margin">
+                        <div class="div button">
+                            <button type="button" class="btn btn-dark">
+                            <i class="fa fa-moon"(click)="!esTemaOscuro && cambiarTemaClick()"  [ngClass]="{'selected': esTemaOscuro}"></i>
+                             /
+                            <i class="fa fa-sun" (click)="esTemaOscuro && cambiarTemaClick()" [ngClass]="{'selected': !esTemaOscuro}"></i>
+                          </button>
+                        </div>
                     </li>
                     <li class="nav-item active margin">
                         <div class="div button">
-                            <button type="button" class="btn btn-dark" (click)="cambiarVistaClick()">Cambiar Vista</button>
+                            <button type="button" class="btn btn-dark" (click)="cambiarVistaClick()">Cambiar Vista<i class="far fa-eye" style="margin-left: 15px;"></i></button>
+                        </div>
+                    </li>
+                    <li class="nav-item active margin">
+                        <div class="div button">
+                            <button type="button" class="btn btn-dark" (click)="cambiarFormClick()">{{ txtBotonForm }}<i class=" fa fa-list-ul" style="margin-left: 15px;"></i></button>
                         </div>
                     </li>
                 </ul>

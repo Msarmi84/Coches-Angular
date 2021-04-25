@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Coche } from '../models/coche';
 
 @Component({
@@ -8,12 +8,37 @@ import { Coche } from '../models/coche';
 })
 export class TarjetasCocheComponent implements OnInit {
 
-  constructor() { }
+  soloRating: boolean = false;
+  txtBoton = 'Ver todo el catálogo';
+  elCoche: Coche;
+
+  listadoDeCoches: Coche[] = [];
+
   @Input() coches: Coche;
+  @Input() esTemaOscuro: boolean;
+
+  @Output() cocheSeleccionado = new EventEmitter<Coche>();
+
+
+  constructor() { }
 
 
   ngOnInit(): void {
 
   }
+
+  mostrarRating() {
+    this.soloRating = !this.soloRating;
+    this.txtBoton = this.soloRating ?  'Ver todo el catálogo' : 'Ver coches con rating';
+  }
+
+
+
+
+
+
+
+
+
 
 }

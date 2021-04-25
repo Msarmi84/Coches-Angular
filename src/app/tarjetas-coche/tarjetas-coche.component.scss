@@ -1,4 +1,27 @@
-.text-alig {
-    text-align: center;
-    margin-top: 20vh;
-}
+    .text-alig {
+        text-align: center;
+        margin-top: 20vh;
+        color: rgb(6, 126, 128);
+    }
+    
+    .colorBoton {
+        background-color: rgba(176, 175, 175, 0.845)!important;
+        border: none;
+    }
+    
+    .temaOscuro {
+        h1 {
+            color: white;
+        }
+    }
+    
+    // .container {
+    //     margin-top: 3vh;
+    // }
+    .boton {
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }

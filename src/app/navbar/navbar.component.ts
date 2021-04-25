@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Input } from '@angular/core';
 
 
 @Component({
@@ -8,7 +8,13 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  @Input() esTemaOscuro: boolean;
+
   @Output() cambiarVista = new EventEmitter();
+  @Output() cambiarTema = new EventEmitter();
+  @Output() verForm = new EventEmitter();
+  txtBotonForm = 'Ver formulario';
+
 
   constructor() { }
 
@@ -18,5 +24,17 @@ export class NavbarComponent implements OnInit {
   cambiarVistaClick(): void{
     this.cambiarVista.emit();
    }
+
+   cambiarTemaClick(): void{
+    this.cambiarTema.emit();
+   }
+
+   cambiarFormClick(): void {
+    this.verForm.emit();
+    this.txtBotonForm = !this.txtBotonForm ?  'Ver formulario' : 'Ocultar Formulario';
+
+
+   }
+
 
 }

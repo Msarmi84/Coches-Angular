@@ -1,0 +1,41 @@
+.estilo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15vh;
+}
+
+.temaOscuro {
+    .formulario {
+        label {
+            color: white!important;
+        }
+    }
+    .h1Form {
+        color: rgb(247, 245, 245)!important;
+    }
+}
+
+.error {
+    color: red!important;
+}
+
+.fa-trash {
+    margin-left: 20px;
+}
+
+.form-boton {
+    margin-bottom: 50px;
+}
+
+.formulario {
+    label {
+        color: rgb(63, 63, 63)!important;
+    }
+}
+
+.form-boton {
+    .h1Form {
+        color: rgb(63, 63, 63);
+    }
+}

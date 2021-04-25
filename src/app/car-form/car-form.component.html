@@ -1,0 +1,62 @@
+<div class="container" [ngClass]="{'temaOscuro': esTemaOscuro}">
+    <div class="row estilo">
+        <div class="col-6">
+            <div class="form-boton">
+                <h1 class="h1Form">Formulario</h1>
+                <button class="btn btn-secondary" (click)="nuevoClick()" type="submit">Nuevo Viaje</button>
+            </div>
+            <form [formGroup]="elFormulario" class="formulario" (ngSubmit)="guardarClick(elFormulario.value)">
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="validationDefault01">Nombre</label>
+                        <input type="text" class="form-control" id="validationDefault01" formControlName="nombre">
+                    </div>
+                    <div class="col-md-6 mb-3" [ngClass]="{'error': submitted && elFormulario.controls.color.invalid }">
+                        <label for="validationDefault02">Color</label>
+                        <input type="text" class="form-control" id="validationDefault02" formControlName="color">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="validationDefault05">Estado Coche</label>
+                        <input type="text" class="form-control" id="validationDefault05" formControlName="state">
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="validationDefault03">Puertas</label>
+                        <input type="text" class="form-control" id="validationDefault03" formControlName="doors">
+                        <span class="error" *ngIf="submitted && elFormulario.controls.doors.hasError('required')">El numero de puertas es obligatorio</span>
+                        <span class="error" *ngIf="elFormulario.controls.doors.hasError('max') || elFormulario.controls.doors.hasError('min')">El numero de puertas no puede ser mayor a 5 ni menor a 3 </span>
+
+
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                        <label for="validationDefault05">Rating</label>
+                        <input type="text" class="form-control" id="validationDefault05" formControlName="rating">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md-2 mb-3">
+                        <label for="validationDefault01">Disponible</label>
+                        <input type="text" class="form-control" id="validationDefault01" formControlName="available">
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationDefault02">Modelo</label>
+                        <input type="text" class="form-control" id="validationDefault02" formControlName="model">
+                    </div>
+                </div>
+
+
+                <button class="btn btn-secondary" type="submit" [disabled]="elFormulario.invalid">Guardar</button>
+                <button class="btn btn-secondary fa fa-trash" type="submit" (click)="eliminarClick($event, coche)"></button>
+            </form>
+
+
+
+
+
+
+        </div>
+    </div>
+</div>

@@ -7,6 +7,10 @@ import { TarjetasCocheComponent } from './tarjetas-coche/tarjetas-coche.componen
 import { CocheComponent } from './coche/coche.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { CocheEstadoDirective } from './coche-estado.directive';
+import { CarFormComponent } from './car-form/car-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TooltipModule } from 'ng2-tooltip-directive';
 
 @NgModule({
   declarations: [
@@ -15,10 +19,14 @@ import { FooterComponent } from './footer/footer.component';
     TarjetasCocheComponent,
     CocheComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    CocheEstadoDirective,
+    CarFormComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule,
+    TooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]

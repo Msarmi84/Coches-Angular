@@ -1,6 +1,7 @@
-.text-alig {
+.colorh1 {
     text-align: center;
     margin-top: 20vh;
+    color: rgb(6, 126, 128);
 }
 
 .style-table {
@@ -13,6 +14,94 @@
     margin-top: 15vh;
 }
 
+.textTabla {
+    color: rgb(6, 126, 128);
+}
+
+.table {
+    background-color: rgba(0, 0, 0, 0.762);
+}
+
+.colorBoton {
+    background-color: rgba(176, 175, 175, 0.845)!important;
+    border: none;
+    cursor: pointer;
+}
+
+.fa-shopping-cart,
+.fa-edit,
+.fa-trash {
+    color: white;
+}
+
+.fa-hand-holding-usd {
+    color: rgb(12, 124, 244);
+}
+
+.temaOscuro {
+    .fa-shopping-cart,
+    .fa-edit,
+    .fa-trash {
+        color: black;
+    }
+    .textTabla {
+        color: white;
+    }
+    .table {
+        background-color: rgb(249, 247, 247);
+        border: 2px solid rgb(217, 218, 218);
+        color: black;
+        .colorBoton {
+            background-color: transparent!important;
+        }
+        &:hover {
+            background-color: white;
+            color: black;
+        }
+    }
+    .fa-shopping-cart:hover {
+        color: rgb(208, 103, 243);
+    }
+    .fa-edit:hover {
+        color: rgb(103, 243, 147);
+    }
+    .fa-trash:hover {
+        color: rgb(249, 23, 83);
+    }
+}
+
 .colorh1 {
-    color: rgb(28, 27, 27);
+    color: white;
+}
+
+.boton {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-shopping-cart,
+.fa-edit,
+.fa-trash {
+    border: none!important;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.fa-shopping-cart:hover {
+    color: rgb(208, 103, 243);
+}
+
+.fa-edit:hover {
+    color: rgb(103, 243, 147);
+}
+
+.fa-trash:hover {
+    color: rgb(249, 23, 83);
+}
+
+.hide {
+    visibility: hidden;
 }

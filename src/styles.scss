@@ -5,11 +5,25 @@ body {
     background-image: fixed;
 }
 
+.colorh1 {
+    color: rgb(249, 249, 249);
+}
+
+.bodyCard {
+    background-color: rgba(6, 126, 128, 0.166);
+}
+
 .style-card {
     justify-content: center;
-    margin-top: 30px;
+    margin-top: 7vh;
     width: 100%;
     display: grid;
     grid-gap: 1rem;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.temaOscuro {
+    .bodyCard {
+        background-color: white;
+    }
 }

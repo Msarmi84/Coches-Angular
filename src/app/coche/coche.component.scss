@@ -1,0 +1,41 @@
+.bodyCard {
+    .temaOscuro {
+        background-color: rgba(7, 101, 122, 0.351)!important;
+    }
+}
+
+.fa-shopping-cart {
+    border: none!important;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.fa-shopping-cart:hover {
+    color: rgb(208, 103, 243);
+}
+
+label {
+    font-weight: bold!important;
+}
+
+.fa-hand-holding-usd {
+    color: rgb(12, 124, 244);
+}
+
+.hide {
+    visibility: hidden;
+}
+
+.fa-edit:hover {
+    color: rgb(103, 243, 147);
+}
+
+.fa-edit {
+    border: none!important;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.fa-trash:hover {
+    color: rgb(249, 23, 83);
+}

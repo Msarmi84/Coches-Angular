@@ -1,8 +1,13 @@
-<app-navbar (cambiarVista)="cambiarVista()"></app-navbar>
-
-<app-tabla-coches *ngIf="mostrarTabla === true" [coches]="listadoDeCoches"></app-tabla-coches>
-
-<app-tarjetas-coche *ngIf="mostrarTabla === false" [coches]="listadoDeCoches"></app-tarjetas-coche>
+<div class="main" [ngClass]="{'temaOscuro' : temaOscuro}">
 
 
-<app-footer></app-footer>
+    <app-navbar [esTemaOscuro]="temaOscuro" (cambiarTema)="cambiarTema()" (cambiarVista)="cambiarVista()" (verForm)="verForm()"></app-navbar>
+
+    <app-tabla-coches [esTemaOscuro]="temaOscuro" (borrarCoche)="borrarCoche($event)" *ngIf="mostrarTabla === true" [coches]="listadoDeCoches" (cocheSeleccionado)="cocheSeleccionado($event)"></app-tabla-coches>
+
+    <app-tarjetas-coche [esTemaOscuro]="temaOscuro" (borrarCoche)="borrarCoche($event)" *ngIf="mostrarTabla === false" [coches]="listadoDeCoches" (cocheSeleccionado)="cocheSeleccionado($event)"></app-tarjetas-coche>
+
+    <app-car-form [esTemaOscuro]="temaOscuro" [coche]="elCoche" (borrarCoche)="borrarCoche($event)" *ngIf="mostrarForm === false" (guardar)="enviar($event)"></app-car-form>
+
+    <app-footer></app-footer>
+</div>

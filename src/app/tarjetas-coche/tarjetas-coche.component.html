@@ -1,5 +1,13 @@
-<h1 class="text-alig">Listado de viajes cards</h1>
+<div class="container" [ngClass]="{'temaOscuro': esTemaOscuro}">
+    <div class="boton">
+        <h1 class="text-alig">Listado de coches cards</h1>
+        <button type="button" class="btn btn-dark colorBoton" (click)="mostrarRating()">{{ txtBoton }}</button>
+    </div>
 
-<div class="container style-card">
-    <app-coche *ngFor="let coche of coches" [coche]="coche"></app-coche>
+    <div class="container style-card">
+        <ng-container *ngFor="let coche of coches">
+            <app-coche [esTemaOscuro]="esTemaOscuro" *ngIf="(soloRating && coche.rating) || (!soloRating)" [coche]="coche">
+            </app-coche>
+        </ng-container>
+    </div>
 </div>
